@@ -1,9 +1,13 @@
 body {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+.nav-bar{
+    display:flex; 
+    flex-direction: row; 
+    flex-grow: 1; 
 }
 
 #main-heading {
@@ -12,6 +16,7 @@ body {
     background-color: #333;
     color: #fff;
     margin-bottom: 10px;
+    flex-grow: 2;
 }
 
 .panels-container {
@@ -42,23 +47,21 @@ body {
     margin-bottom: 10px;
 }
 
-button {
-    margin-right: 10px;
+.btn{
     padding: 10px;
     background-color: #4CAF50;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 1px black;
+    text-decoration: none;
     cursor: pointer;
+
 }
 
-button:last-child {
-    margin-right: 0;
+.btn:hover {
+    background-color: white;
+    color: #4CAF50;
 }
 
-button:hover {
-    background-color: #45a049;
-}
 
 footer {
     background-color: #333;
