@@ -134,3 +134,21 @@ footer {
     width: 230px;
     height: 230px;
 }
+
+.button-style-logout {
+    width: auto;
+    height: auto;
+    color: white;
+    font-weight: 500;
+    background-color: rgb(234, 56, 56);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;    
+}
+
+.button-style-logout:hover {
+    opacity: 0.7;
+    background: white;
+    color: rgb(117, 27, 27);
+    font-weight: 650;
+}
