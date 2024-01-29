@@ -125,7 +125,12 @@ footer {
 
 .button-style-footer:hover {
     opacity: 0.7;
-    background: #433BFF;
-    color: white;
+    background: white;
+    color: black;
     font-weight: 650;
+}
+
+.suggestionicon {
+    width: 230px;
+    height: 230px;
 }

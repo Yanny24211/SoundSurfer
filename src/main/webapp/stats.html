@@ -16,9 +16,21 @@
     <div class="information">
         <div class="stats-panel">
             <h3>My Statistics</h3>
+            <p>Song Count: {{ numSongs }}</p>
+            <p>Artist Count: {{ numArtists }}</p>
+            <br>
+            <p>Favorite Genre: {{ favGenre }}</p>
+            <p>Favorite Artist: {{ favArtist }}</p>
+            <p>Favorite Song: {{ favSong }}</p>
         </div>
         <div class="suggestion-panel">
             <h3>Song Suggestions</h3>
+            <div class="suggestion-details">
+                <img src="resources/tpab_cover.jpg" alt="" class="suggestionicon">
+                <p>Artist: {{ artistName }}</p>
+                <p>Song Name: {{ songName }}</p>
+                <p>Release Year: {{ releaseYear }}</p>
+            </div>
         </div>
     </div>
     <footer>
