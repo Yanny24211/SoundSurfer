@@ -34,12 +34,14 @@ body {
 }
 
 .panels-container {
-    border: 2px solid #433BFF;
+    
 }
 
 .title{ 
-    margin: 130x; 
-    color: #1A47FF; 
+    margin: 20px 0 20px 0;
+    padding: 20px 0 20px 0;
+    background-color: #433BFF; 
+    color: #19191D; 
     font-size: 65px; 
     width: 100%; 
     height: auto; 
