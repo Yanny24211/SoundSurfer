@@ -3,105 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soundsurfer/login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SoundSurfer/login</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <div class="nav-bar">
-        <h1 id="main-heading">Soundsurfer</h1> 
-        <div class="login-buttons">
-            <a href="login.html" class="btn-text"><p class="btn"> Login</p></a>
-            <br> 
-            <a href="register.html" class="btn-text"><p class="btn">Register</p></a>
-        </div>
-    </div>
+    <div class="login-container">
+        <h2><a href="index.html" class="home">SoundSurfer</a></h2>
     
-    <div class="panels-container">
-        <h2 class="title">Discover</h2>
-        <div class="suggestions">
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
+        <form action="login.php" method="post">
+            <div class="form-group"> 
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-            <div class="song">
-                <img class="album-art" src="resources/tpab_cover.jpg" alt="Cover Art">
-                <p class="name">Alright</p>
-                <p class="name">To Pimp A Butterfly</p>
-                <p class="name">Kendrick Lamar</p>
-            </div>
-
-        </div>
-    </div>  
-    <footer>
-        <p>Developed by Deep Patel and Yanny Patel</p>
-        <div class="footer-buttons">
-            <a href="index.html"><button class="button-style-footer">Discover</button></a>
-            <a href="library.html"><button class="button-style-footer">Track Library</button></a>
-            <a href="stats.html"><button class="button-style-footer">My Statistics</button></a>
-            <a href="login.html"><button class="button-style-logout">Logout</button></a>
-        </div>
-    </footer>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account?  <a href="register.html" class="btn btn-register">Register</a></p>
+    </div>    
 </body>
 </html>
