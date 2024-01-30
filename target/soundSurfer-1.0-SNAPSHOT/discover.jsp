@@ -97,10 +97,10 @@
     <footer>
         <p>Developed by Deep Patel and Yanny Patel</p>
         <div class="footer-buttons">
-            <a href="index.html"><button class="button-style-footer">Discover</button></a>
-            <a href="library.html"><button class="button-style-footer">Track Library</button></a>
-            <a href="stats.html"><button class="button-style-footer">My Statistics</button></a>
-            <a href="login.html"><button class="button-style-logout">Logout</button></a>
+            <a href="discover.jsp"><button class="button-style-footer">Discover</button></a>
+            <a href="library.jsp"><button class="button-style-footer">Track Library</button></a>
+            <a href="stats.jsp"><button class="button-style-footer">My Statistics</button></a>
+            <a href="index.html"><button class="button-style-logout">Logout</button></a>
         </div>
     </footer>
 </body>

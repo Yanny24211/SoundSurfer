@@ -3,30 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soundsurfer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SoundSurfer/login</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <div class="nav-bar">
-        <h1 id="main-heading">SoundSurfer COE692</h1> 
-        <p><a href="login.html" class="btn">Login</a></p>
-        <p><a href="register.html" class="btn">Register</a></p>
-    </div>
+    <div class="login-container">
+        <h2><a href="discover.jsp" class="home">SoundSurfer Login</a></h2>
     
-    <div class="panels-container">
-
-        <div class="panel" id="center-panel">
-            <h2>Discover</h2>
-            <div class="suggested-song">
-                <
+        <form action="login.php" method="post">
+            <div class="form-group"> 
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
-            <!-- Add content for the center panel as needed -->
-        </div>
-
-    </div>
-
-    <footer>
-        <p>Developed by: Deep Patel and Yanny Patel</p>
-    </footer>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account?  <a href="register.html" class="btn btn-register">Register</a></p>
+    </div>    
 </body>
 </html>
