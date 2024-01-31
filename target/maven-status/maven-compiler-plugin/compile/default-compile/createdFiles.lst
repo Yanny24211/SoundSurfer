@@ -1,5 +1,5 @@
-com/mycompany/soundsurfer/Logout.class
-com/mycompany/soundsurfer/Register.class
-com/mycompany/soundsurfer/User.class
-com/mycompany/soundsurfer/UserDao.class
-com/mycompany/soundsurfer/Login.class
+com\mycompany\soundsurfer\Login.class
+com\mycompany\soundsurfer\UserDao.class
+com\mycompany\soundsurfer\Register.class
+com\mycompany\soundsurfer\User.class
+com\mycompany\soundsurfer\Logout.class
