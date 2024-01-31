@@ -6,6 +6,7 @@ package com.mycompany.soundsurfer;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Register", urlPatterns = {"/Register"})
 public class Register extends HttpServlet {
+    private UserDao userDao;
+    @Override
+    public void init() throws ServletException {
+        userDao = new UserDao();
+        ServletContext context = getServletContext();
+        context.setAttribute("userDao", userDao);
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,7 +35,11 @@ public class Register extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        UserDao userDao = new UserDao(); 
+        if (userDao.getUser(username) != null) {
+            // Handle username already taken scenario
+            out.println("Username already taken. Choose a different username.");
+            return;
+        }
         //Add error handling in case username alr exists
         User newUser = new User(username, password);
         userDao.addUser(newUser);

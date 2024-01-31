@@ -13,7 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import static jdk.jpackage.internal.Arguments.CLIOptions.context;
+import javax.servlet.ServletContext;
 /**
  *
  * @author student
@@ -31,7 +32,13 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
+    private UserDao userDao; 
+    @Override
+    public void init() throws ServletException {
+        // Retrieve UserDao from the ServletContext
+        ServletContext context = getServletContext();
+        userDao = (UserDao) context.getAttribute("userDao");
+    }
 
    @Override 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -41,20 +48,19 @@ public class Login extends HttpServlet {
         
         String username=(String) request.getParameter("username");
         String password=(String) request.getParameter("password");
+     
+          
+        User admin = new User("admin", "admim"); 
+        admin.setNumSongs(30); 
+        admin.setNumArtists(35); 
+        admin.setFavGenre("Classical"); 
+        admin.setFavArtist("Ice Spice"); 
+        admin.setFavSong("You Think You The Shit (You not even the fart)");
         
-//        UserDao userDao = new UserDao(); 
-//        userDao.validateUser(username, password)
-//        User user = userDao.getUser(username); 
-          User admin = new User("admin", "admim"); 
-          admin.setNumSongs(30); 
-          admin.setNumArtists(35); 
-          admin.setFavGenre("Classical"); 
-          admin.setFavArtist("Ice Spice"); 
-          admin.setFavSong("You Think You The Shit (You not even the fart)");
-        
-        if (username.equals("admin")&&password.equals("admin")){
+        if (userDao.validateUser(username, password)){
+            User user = userDao.getUser(username); 
             //request.getSession().setAttribute("user", user);
-            request.getSession().setAttribute("user", admin);
+            request.getSession().setAttribute("user", user);
             
             out.println("Login Successful!");
             RequestDispatcher rd= request.getRequestDispatcher("stats.jsp");
