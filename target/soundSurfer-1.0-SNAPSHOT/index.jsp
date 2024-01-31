@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundSurfer/register</title>
+    <title>SoundSurfer/login</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <div class="login-container">
-        <h2><a href="discover.jsp" class="home">SoundSurfer Register</a></h2>
-        <form action="login.php" method="post">
+        <h2><a href="discover.jsp" class="home">SoundSurfer Login</a></h2>
+    
+        <form action="Login" method="post">
             <div class="form-group"> 
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -18,9 +19,9 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn">Complete Registration</button>
+            <button type="submit" class="btn">Login</button>
         </form>
-        <p>Have an account?  <a href="index.html" class="btn btn-register">Login</a></p>
+        <p>Don't have an account?  <a href="register.jsp" class="btn btn-register">Register</a></p>
     </div>    
 </body>
 </html>

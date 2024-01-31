@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author student
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
+@WebServlet("/Login")
+//@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /**
@@ -36,53 +37,41 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        PrintWriter out = response.getWriter();
+        
         String username=(String) request.getParameter("username");
         String password=(String) request.getParameter("password");
         
-        UserInfo uinfo=getUserInfo(username, password);
+//        UserDao userDao = new UserDao(); 
+//        userDao.validateUser(username, password)
         
-        if (uinfo==null){
-            RequestDispatcher rd= request.getRequestDispatcher("loginfailed.jsp");
+        if (username.equals("admin")&&password.equals("admin")){
+            request.getSession().setAttribute("uname", username);
+            
+            out.println("Login Successful!");
+            RequestDispatcher rd= request.getRequestDispatcher("stats.jsp");
             rd.forward(request, response);
+            //response.sendRedirect("stats.jsp"); 
         }
         else{
-            request.getSession().setAttribute("uname", username);
-            request.setAttribute("booksBorrowedInfo", uinfo.getBookBorrowed());
-            
-            RequestDispatcher rd= request.getRequestDispatcher("userbooks.jsp");
-            rd.forward(request, response);
+            //out.println("Login unsuccessful, Please try again!");    
+            response.sendRedirect("index.jsp");
+//            RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
+//            rd.forward(request, response);
             
         }
         
         
      
     }
+    
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
 
-    private UserInfo getUserInfo(String uname, String password) {
-        /**
-         * to be completed. For now, we just return a user info object that has a default book in a default date;
-         * This method must return null when user name and password is incorrect
-         * otherwise it must return an object containing all books that have been borrowed by the user, in addition to user information like name, address, ...
-         */
-        UserInfo uf= new UserInfo();
-   
-        
-       try {
-           uf.addBook(new BookBorrowed("Leshante", "Romain Rolland", new SimpleDateFormat("YYYY-MM-dd").parse("2021-02-01"), true));
-           uf.addBook(new BookBorrowed("John Kristof", "Romain Rolland", new SimpleDateFormat("YYYY-MM-dd").parse("2021-01-20"), false));
-       } catch (ParseException ex) {
-           Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-           System.out.println("Error");
-       }
-        return uf;
-    }
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+              doPost(request, response);
 
-          doPost(request, response);
 
-        
-    }
+        }
 
 }

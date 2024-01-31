@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soundsurfer/login</title>
+    <title>SoundSurfer/discover</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <% 
+        if(session.getAttribute("username") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
+    
     <div class="nav-bar">
-        <h1 id="main-heading">Soundsurfer</h1> 
-        <div class="login-buttons">
-            <a href="login.html" class="btn-text"><p class="btn"> Login</p></a>
+        <h1 id="main-heading">Soundsurfer</h1>
+        <div> 
+            <p >Hello ${"username"}!</p>
+        </div> 
+<!--        <div class="login-buttons">
+            <a href="index.jsp" class="btn-text"><p class="btn"> Login</p></a>
             <br> 
-            <a href="register.html" class="btn-text"><p class="btn">Register</p></a>
-        </div>
+            <a href="register.jsp" class="btn-text"><p class="btn">Register</p></a>
+        </div>-->
     </div>
     
     <div class="panels-container">
@@ -100,7 +109,7 @@
             <a href="discover.jsp"><button class="button-style-footer">Discover</button></a>
             <a href="library.jsp"><button class="button-style-footer">Track Library</button></a>
             <a href="stats.jsp"><button class="button-style-footer">My Statistics</button></a>
-            <a href="index.html"><button class="button-style-logout">Logout</button></a>
+            <form action="Logout" method="get" class="lgout"><input type="submit" value="Logout" class="button-style-logout"></form>
         </div>
     </footer>
 </body>
