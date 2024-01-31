@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="librarystyles.css">
 </head>
 <body>
+    <% 
+        if(session.getAttribute("username")==null){
+            response.sendRedirect("index.jsp");
+        }
+ 
+    %>
     <div class="top-bar">
         <img src="resources/tracklibraryicon.png" alt="libraryicon" class="libraryicon">
         <div class="main-heading">

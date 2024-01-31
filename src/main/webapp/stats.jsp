@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="mystatstyles.css">
 </head>
 <body>
+    <% 
+        if(session.getAttribute("username")==null){
+            response.sendRedirect("index.jsp");
+        }
+ 
+    %>
     <div class="top-bar">
         <img src="resources/statsicon.png" alt="libraryicon" class="libraryicon">
         <div class="main-heading">
-            <h1>My Statistics / Recomendations</h1>
+            <h1>My Statistics / Recommendations</h1>
         </div>
     </div>
     <div class="information">
@@ -39,7 +45,7 @@
             <a href="discover.jsp"><button class="button-style-footer">Discover</button></a>
             <a href="library.jsp"><button class="button-style-footer">Track Library</button></a>
             <a href="stats.jsp"><button class="button-style-footer">My Statistics</button></a>
-            <a href="index.html"><button class="button-style-logout">Logout</button></a>
+            <a href="index.jsp"><button class="button-style-logout">Logout</button></a>
         </div>
     </footer>
 </body>

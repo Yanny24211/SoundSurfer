@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author yannypatel
  */
 public class UserDao {
-    private ArrayList<User> UserList = new ArrayList<>(); 
+    private static final ArrayList<User> UserList = new ArrayList<>(); 
     
     public void addUser(User user){
         UserList.add(user); 
