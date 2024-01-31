@@ -1,3 +1,4 @@
+<%@page import="com.mycompany.soundsurfer.User"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,8 @@
 </head>
 <body>
     <% 
-        if(session.getAttribute("username")==null){
+        User user = (User) session.getAttribute("user");
+        if(user.getUsername() ==null){
             response.sendRedirect("index.jsp");
         }
  
@@ -22,12 +24,12 @@
     <div class="information">
         <div class="stats-panel">
             <h3>My Statistics</h3>
-            <p>Song Count: {{ numSongs }}</p>
-            <p>Artist Count: {{ numArtists }}</p>
+            <p>Song Count: ${user.getNumSongs()}</p>
+            <p>Artist Count: ${user.getNumArtists()}</p>
             <br>
-            <p>Favorite Genre: {{ favGenre }}</p>
-            <p>Favorite Artist: {{ favArtist }}</p>
-            <p>Favorite Song: {{ favSong }}</p>
+            <p>Favorite Genre: ${user.getFavGenre()}</p>
+            <p>Favorite Artist: ${user.getFavArtist()}</p>
+            <p>Favorite Song: ${user.getFavSong()}</p>
         </div>
         <div class="suggestion-panel">
             <h3>Song Suggestions</h3>
