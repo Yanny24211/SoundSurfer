@@ -1,3 +1,4 @@
+<%@page import="com.mycompany.soundsurfer.User"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,8 @@
 </head>
 <body>
     <% 
-        if(session.getAttribute("username") == null){
+        User user = (User) session.getAttribute("user");
+        if(user.getUsername() ==null){
             response.sendRedirect("index.jsp");
         }
     %>

@@ -44,9 +44,17 @@ public class Login extends HttpServlet {
         
 //        UserDao userDao = new UserDao(); 
 //        userDao.validateUser(username, password)
+//        User user = userDao.getUser(username); 
+          User admin = new User("admin", "admim"); 
+          admin.setNumSongs(30); 
+          admin.setNumArtists(35); 
+          admin.setFavGenre("Classical"); 
+          admin.setFavArtist("Beethoven"); 
+          admin.setFavSong("Fur Elise");
         
         if (username.equals("admin")&&password.equals("admin")){
-            request.getSession().setAttribute("uname", username);
+            //request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("user", admin);
             
             out.println("Login Successful!");
             RequestDispatcher rd= request.getRequestDispatcher("stats.jsp");
