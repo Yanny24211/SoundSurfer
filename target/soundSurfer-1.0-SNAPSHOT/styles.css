@@ -33,8 +33,9 @@ body {
     flex-grow: 2;
 }
 
-.panels-container {
-    
+.greeting{
+    color: #fff;
+    font-size: 45px; 
 }
 
 .title{ 
@@ -159,6 +160,14 @@ footer {
     padding: 10px;
 }
 
+<<<<<<< HEAD
+=======
+.lgout{
+    padding: 0px; 
+    margin: 0px; 
+}
+
+>>>>>>> 836979b494086c6094e878e76bb48edc5032c52c
 .button-style-footer:hover {
     opacity: 0.7;
     background: white;
