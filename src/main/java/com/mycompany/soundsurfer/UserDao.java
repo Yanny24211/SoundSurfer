@@ -10,7 +10,11 @@ import java.util.ArrayList;
  * @author yannypatel
  */
 public class UserDao {
-    private static final ArrayList<User> UserList = new ArrayList<>(); 
+    private ArrayList<User> UserList;
+    
+    public UserDao(){
+        UserList = new ArrayList<>(); 
+    }
     
     public void addUser(User user){
         UserList.add(user); 
@@ -19,7 +23,7 @@ public class UserDao {
     public User getUser(String username){
         for(User person: UserList){
             if(person.getUsername().equals(username)){
-                return UserList.get(UserList.indexOf(person));   
+                return person;   
             }
         }
         System.out.println("User is not found");

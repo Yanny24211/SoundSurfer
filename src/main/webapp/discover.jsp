@@ -111,7 +111,7 @@
             <a href="discover.jsp"><button class="button-style-footer">Discover</button></a>
             <a href="library.jsp"><button class="button-style-footer">Track Library</button></a>
             <a href="stats.jsp"><button class="button-style-footer">My Statistics</button></a>
-            <form action="Logout" method="get" class="lgout"><input type="submit" value="Logout" class="button-style-logout"></form>
+            <form action="Logout" method="get"><input type="submit" value="Logout" class="button-style-logout"></form>
         </div>
     </footer>
 </body>
