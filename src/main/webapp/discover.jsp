@@ -17,8 +17,8 @@
     
     <div class="nav-bar">
         <h1 id="main-heading">Soundsurfer</h1>
-        <div> 
-            <p >Hello ${"username"}!</p>
+        <div class="name"> 
+            <p>Hello ${user.getUsername()}!</p>
         </div> 
 <!--        <div class="login-buttons">
             <a href="index.jsp" class="btn-text"><p class="btn"> Login</p></a>

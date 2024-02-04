@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
         String password=(String) request.getParameter("password");
      
           
-        User admin = new User("admin", "admim"); 
+        User admin = new User("admin", "admin"); 
         admin.setNumSongs(30); 
         admin.setNumArtists(35); 
         admin.setFavGenre("Classical"); 

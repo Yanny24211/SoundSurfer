@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2><a href="discover.jsp" class="home">SoundSurfer Register</a></h2>
+        <h2>SoundSurfer Register</h2>
         <form action="Register" method="post">
             <div class="form-group"> 
                 <label for="username">Username:</label>
