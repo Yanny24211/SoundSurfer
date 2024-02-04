@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2><a href="discover.jsp" class="home">SoundSurfer Login</a></h2>
+        <h2>SoundSurfer Login</h2>
     
         <form action="Login" method="post">
             <div class="form-group"> 
