@@ -54,8 +54,8 @@ public class Login extends HttpServlet {
         admin.setNumSongs(30); 
         admin.setNumArtists(35); 
         admin.setFavGenre("Classical"); 
-        admin.setFavArtist("Ice Spice"); 
-        admin.setFavSong("You Think You The Shit (You not even the fart)");
+        admin.setFavArtist("Beethoven"); 
+        admin.setFavSong("Fur Elise");
         
         if (userDao.validateUser(username, password)){
             User user = userDao.getUser(username); 
