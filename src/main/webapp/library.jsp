@@ -83,6 +83,7 @@
             document.getElementById("addSongForm").style.padding = "20px";
             document.getElementById("addSongForm").style.margin = "10px";
             document.getElementById("addSongForm").style.background = "black";
+            document.getElementById("addSongForm").style.color = "white";
         }
     </script>
 </body>
