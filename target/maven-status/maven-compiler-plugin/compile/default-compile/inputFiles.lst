@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\Login.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\User.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\UserDao.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\Logout.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\Register.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\AddSong.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\Song.java
+C:\Users\deeps\Desktop\coe692\SoundSurferProject\SoundSurfer\src\main\java\com\mycompany\soundsurfer\DeleteSong.java
+=======
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/User.java
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/UserDao.java
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/Register.java
@@ -5,3 +15,4 @@
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/AddSong.java
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/Logout.java
 /Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/java/com/mycompany/soundsurfer/Login.java
+>>>>>>> 4bb9a828db7c6b05290fa7602168e58a525d5623

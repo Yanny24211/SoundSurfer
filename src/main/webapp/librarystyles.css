@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #19191D;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
 }
 
 .top-bar {
@@ -45,6 +46,17 @@ body {
     padding: 5px;
     border-radius: 10px;
     margin: 5px;
+}
+
+.button-style-header-special {
+    width: 120px;
+    height: auto;
+    color: white;
+    font-weight: 500;
+    background-color: #0c9f44;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 26.5px;
 }
 
 .button-style-header:hover {
@@ -107,4 +119,78 @@ footer {
     background: white;
     color: rgb(117, 27, 27);
     font-weight: 650;
+}
+
+.SongListHeader {
+    color: white;
+}
+
+.form-container {
+    width: 300px; /* Adjust as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align the form contents */
+}
+
+/* Style for form labels */
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* Ensure labels are displayed one below the other */
+}
+
+/* Style for form input fields */
+.form-input {
+    width: calc(100% - 16px); /* Adjust input width to accommodate padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for the submit button */
+.form-submit {
+    width: calc(100% - 16px); /* Adjust button width to accommodate padding and border */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.form-submit:hover {
+    background-color: #50C878;
+}
+
+.top-bar h1 {
+    color: white;
+}
+
+#addedSongs {
+    margin-top: 20px; /* Add some spacing between the form and the text list */
+    padding: 0 20px;
+}
+
+#addedSongs ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+#addedSongs ul li {
+    margin-bottom: 10px; /* Add some vertical spacing between list items */
+    color: white; /* Text color */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Font family */
+}       
+
+.formDirection {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 10px;
 }
