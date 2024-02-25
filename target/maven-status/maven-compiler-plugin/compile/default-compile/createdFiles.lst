@@ -1,6 +1,7 @@
 com\mycompany\soundsurfer\AddSong.class
 com\mycompany\soundsurfer\UserDao.class
 com\mycompany\soundsurfer\Register.class
+DeleteSong.class
 com\mycompany\soundsurfer\User.class
 com\mycompany\soundsurfer\Login.class
 com\mycompany\soundsurfer\Song.class
