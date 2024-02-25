@@ -1,3 +1,7 @@
+<%@page import="java.io.IOException"%>
+<%@page import="java.io.FileReader"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.mycompany.soundsurfer.User"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +17,24 @@
         if(user ==null){
             response.sendRedirect("index.jsp");
         }
- 
+        java.util.Random random = new java.util.Random();
+        
+        String filePath = "/Users/yannypatel/Documents/GitHub Repositories/COE692_Project/soundSurfer/src/main/webapp/tracks.txt";
+
+        ArrayList<String> trackIds = new ArrayList<>();
+        trackIds.add("");
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                trackIds.add(line);
+            }
+        } catch (IOException e) {System.out.println(e);}
+        int randomValue = random.nextInt(trackIds.size()); 
+        
+        String trackId = trackIds.get(randomValue);
+        request.setAttribute("trackId", trackId);
+        System.out.println(trackId);
     %>
     <div class="top-bar">
         <img src="resources/statsicon.png" alt="libraryicon" class="libraryicon">
@@ -34,10 +55,7 @@
         <div class="suggestion-panel">
             <h3>Song Suggestions</h3>
             <div class="suggestion-details">
-                <img src="resources/tpab_cover.jpg" alt="" class="suggestionicon">
-                <p>Artist: {{ artistName }}</p>
-                <p>Song Name: {{ songName }}</p>
-                <p>Release Year: {{ releaseYear }}</p>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
     </div>

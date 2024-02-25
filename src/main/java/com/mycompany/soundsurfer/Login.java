@@ -32,14 +32,7 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private UserDao userDao; 
-    @Override
-    public void init() throws ServletException {
-        // Retrieve UserDao from the ServletContext
-        ServletContext context = getServletContext();
-        userDao = (UserDao) context.getAttribute("userDao");
-    }
-
+    UserDao userDao = new UserDao(); 
 //    @Override
 //    public void init() throws ServletException {
 //        // Retrieve UserDao from the ServletContext
@@ -58,12 +51,7 @@ public class Login extends HttpServlet {
         String password=(String) request.getParameter("password");
      
           
-        User admin = new User("admin", "admin"); 
-        admin.setNumSongs(30); 
-        admin.setNumArtists(35); 
-        admin.setFavGenre("Classical"); 
-        admin.setFavArtist("Beethoven"); 
-        admin.setFavSong("Fur Elise");
+        
         
 //        UserDao userDao = new UserDao(); 
 //        userDao.validateUser(username, password)
@@ -75,7 +63,7 @@ public class Login extends HttpServlet {
             //request.getSession().setAttribute("user", user);
             request.getSession().setAttribute("user", user);
             
-            out.println("Login Successful!");
+            System.out.println("Login Successful!");
             RequestDispatcher rd= request.getRequestDispatcher("stats.jsp");
             rd.forward(request, response);
             //response.sendRedirect("stats.jsp"); 
