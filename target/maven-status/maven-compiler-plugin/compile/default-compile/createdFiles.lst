@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\mycompany\soundsurfer\AddSong.class
 com\mycompany\soundsurfer\UserDao.class
 com\mycompany\soundsurfer\Register.class
@@ -6,3 +7,7 @@ com\mycompany\soundsurfer\User.class
 com\mycompany\soundsurfer\Login.class
 com\mycompany\soundsurfer\Song.class
 com\mycompany\soundsurfer\Logout.class
+=======
+com/mycompany/soundsurfer/AddSong.class
+com/mycompany/soundsurfer/Song.class
+>>>>>>> 4bb9a828db7c6b05290fa7602168e58a525d5623
