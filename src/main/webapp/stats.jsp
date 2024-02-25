@@ -10,7 +10,7 @@
 <body>
     <% 
         User user = (User) session.getAttribute("user");
-        if(user.getUsername() ==null){
+        if(user ==null){
             response.sendRedirect("index.jsp");
         }
  

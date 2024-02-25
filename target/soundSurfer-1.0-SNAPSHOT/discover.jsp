@@ -10,7 +10,7 @@
 <body>
     <% 
         User user = (User) session.getAttribute("user");
-        if(user.getUsername() ==null){
+        if(user == null){
             response.sendRedirect("index.jsp");
         }
     %>
@@ -111,7 +111,7 @@
             <a href="discover.jsp"><button class="button-style-footer">Discover</button></a>
             <a href="library.jsp"><button class="button-style-footer">Track Library</button></a>
             <a href="stats.jsp"><button class="button-style-footer">My Statistics</button></a>
-            <form action="Logout" method="get"><input type="submit" value="Logout" class="button-style-logout"></form>
+            <form class=lgout action="Logout" method="get"><input type="submit" value="Logout" class="button-style-logout"></form>
         </div>
     </footer>
 </body>

@@ -32,38 +32,33 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private UserDao userDao; 
-    @Override
-    public void init() throws ServletException {
-        // Retrieve UserDao from the ServletContext
-        ServletContext context = getServletContext();
-        userDao = (UserDao) context.getAttribute("userDao");
-    }
-
+    
+//    @Override
+//    public void init() throws ServletException {
+//        // Retrieve UserDao from the ServletContext
+//        ServletContext context = getServletContext();
+//        userDao = (UserDao) context.getAttribute("userDao");
+//    }
+    UserDao userDao = new UserDao(); 
    @Override 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ServletContext servletContext = request.getServletContext();
         
+        servletContext.setAttribute("userDao", userDao);
         PrintWriter out = response.getWriter();
         
         String username=(String) request.getParameter("username");
         String password=(String) request.getParameter("password");
      
-          
-        User admin = new User("admin", "admin"); 
-        admin.setNumSongs(30); 
-        admin.setNumArtists(35); 
-        admin.setFavGenre("Classical"); 
-        admin.setFavArtist("Beethoven"); 
-        admin.setFavSong("Fur Elise");
-        
+       
 //        UserDao userDao = new UserDao(); 
 //        userDao.validateUser(username, password)
 //        User user = userDao.getUser(username); 
        
         if (userDao.validateUser(username, password)){
             User user = userDao.getUser(username); 
-
+            System.out.print("Login Successful!");
             //request.getSession().setAttribute("user", user);
             request.getSession().setAttribute("user", user);
             
@@ -73,6 +68,8 @@ public class Login extends HttpServlet {
             //response.sendRedirect("stats.jsp"); 
         }
         else{
+            System.out.print("Login Failed:(");
+ 
             //out.println("Login unsuccessful, Please try again!");    
             response.sendRedirect("index.jsp");
 //            RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
@@ -84,13 +81,10 @@ public class Login extends HttpServlet {
      
     }
     
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-
-              doPost(request, response);
-
-
-        }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
 
 }
