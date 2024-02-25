@@ -1,6 +1,9 @@
 package com.mycompany.soundsurfer;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +13,41 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/AddSong")
 public class AddSong extends HttpServlet {
+    private static Connection getCon(){
+        Connection con = null; 
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/soundsurfer?autoReconnect=true&useSSL=false", "root", "student123");
+            System.out.println("Connection Established");
+        }
+        catch(Exception e){System.out.println("Connection Failed: " + e);} 
+        return con;
+    }
+    
+    public void addSong(Song song, int totals, User user){
+        String title = song.getTitle(); 
+        String artist = song.getArtist(); 
+        String uname = user.getUsername(); 
+        try{
+            
+            Connection con = getCon(); 
+            String userQ = "update theUser set fav_artist = \""+ artist +"\", fav_genre = \"Rap\", fav_song = \""+ title +"\", num_songs = "+totals+", num_artists = "+totals+" where username = \""+ uname +"\"";
+            PreparedStatement  ps = con.prepareStatement(userQ); 
+            System.out.print(userQ);
+            int rowsAffected = ps.executeUpdate();
+            System.out.print("# of Rows: " + rowsAffected);
+            if(rowsAffected > 0){
+                 System.out.println("Rows added"); 
+            }
+            else{
+                System.out.println("Rows not added"); 
+            }
+            con.close();
+        }
+        catch(Exception e){System.out.println(e);}
+ 
+    }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -17,10 +55,10 @@ public class AddSong extends HttpServlet {
         String songName = request.getParameter("songName");
         String artist = request.getParameter("artist");
         int rating = Integer.parseInt(request.getParameter("rating"));
-
+        User user = (User) request.getSession().getAttribute("user");
         // Create a new Song object
         Song newSong = new Song(songName, artist, rating);
-
+       
         // Retrieve the list of added songs from session
         ArrayList<Song> addedSongs = (ArrayList<Song>) request.getSession().getAttribute("addedSongs");
 
@@ -32,7 +70,8 @@ public class AddSong extends HttpServlet {
 
         // Add the new song to the list
         addedSongs.add(newSong);
-
+        int len = addedSongs.size();
+        addSong(newSong, len, user); 
         // Redirect back to the library page
         response.sendRedirect("library.jsp");
     }

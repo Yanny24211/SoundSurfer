@@ -4,6 +4,11 @@
  */
 package com.mycompany.soundsurfer;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class User{
     private String username;
     private String password; 
@@ -16,6 +21,17 @@ public class User{
     public User(String user, String pass){
         username = user; 
         password = pass; 
+    }
+    
+    private static Connection getCon(){
+        Connection con = null; 
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/soundsurfer?autoReconnect=true&useSSL=false", "root", "student123");
+            System.out.println("Connection Established");
+        }
+        catch(Exception e){System.out.println("Connection Failed: " + e);} 
+        return con;
     }
     
     public String getUsername(){
@@ -34,16 +50,59 @@ public class User{
         password = pass; 
     }
     
-    public int getNumSongs() {
-        return this.numSongs;
+    public String getNumSongs() {
+        String num_songs = "0"; 
+        try{
+            Connection con = getCon(); 
+            String userQ = "select num_songs from theUser where username like \"" + this.username + "\""; 
+            //System.out.println(userQ); 
+            PreparedStatement ps = con.prepareStatement(userQ); 
+
+            try(ResultSet rs = ps.executeQuery()){
+                //System.out.println("Statement: " + rs);
+                //Try printing result set
+                
+                while(rs.next()){
+                    num_songs = rs.getString("num_songs");
+                    
+                }
+                con.close();   
+            }
+            catch(Exception e){System.out.println("getNumSongs: "+ e);}
+            
+        }
+        catch(Exception e){System.out.println("#Songs Retrieval Failed: " + e);}
+        return num_songs; 
+
     }
     
     public void setNumSongs(int numSongs) {
         this.numSongs = numSongs;
     }
     
-    public int getNumArtists() {
-        return this.numArtists;
+    public String getNumArtists() {
+        String num_artists = "0"; 
+        try{
+            Connection con = getCon(); 
+            String userQ = "select num_artists from theUser where username like \"" + this.username + "\""; 
+            //System.out.println(userQ); 
+            PreparedStatement ps = con.prepareStatement(userQ); 
+
+            try(ResultSet rs = ps.executeQuery()){
+                //System.out.println("Statement: " + rs);
+                //Try printing result set
+                
+                while(rs.next()){
+                    num_artists = rs.getString("num_artists");
+                    
+                }
+                con.close();   
+            }
+            catch(Exception e){System.out.println("getNumArtists: "+ e);}
+            
+        }
+        catch(Exception e){System.out.println("#Artists Retrieval Failed: " + e);}
+        return num_artists; 
     }
    
     public void setNumArtists (int numArtists) {
@@ -51,9 +110,28 @@ public class User{
     }
     
     public String getFavGenre() {
-        //later when array of genres is passed, a count of each can be recorded 
-        //returning the highest one
-        return this.favGenre;
+        String fav_genre = "Rap"; 
+        try{
+            Connection con = getCon(); 
+            String userQ = "select fav_genre from theUser where username like \"" + this.username + "\""; 
+            //System.out.println(userQ); 
+            PreparedStatement ps = con.prepareStatement(userQ); 
+
+            try(ResultSet rs = ps.executeQuery()){
+                //System.out.println("Statement: " + rs);
+                //Try printing result set
+                
+                while(rs.next()){
+                    fav_genre = rs.getString("fav_genre");
+                    
+                }
+                con.close();   
+            }
+            catch(Exception e){System.out.println("getFavGenre: "+ e);}
+            
+        }
+        catch(Exception e){System.out.println("Genre Retrieval Failed: " + e);}
+        return fav_genre; 
     }
    
     public void setFavGenre (String favGenre) {
@@ -61,9 +139,28 @@ public class User{
     }
     
     public String getFavArtist() {
-        //later when array of artists is passed, a count of each can be recorded
-        //returning the highest one
-        return this.favArtist;
+        String fav_artist = "Kanye"; 
+        try{
+            Connection con = getCon(); 
+            String userQ = "select fav_artist from theUser where username like \"" + this.username + "\""; 
+            //System.out.println(userQ); 
+            PreparedStatement ps = con.prepareStatement(userQ); 
+
+            try(ResultSet rs = ps.executeQuery()){
+                //System.out.println("Statement: " + rs);
+                //Try printing result set
+                
+                while(rs.next()){
+                    fav_artist = rs.getString("fav_artist");
+                    
+                }
+                con.close();   
+            }
+            catch(Exception e){System.out.println("getFavArtist: "+ e);}
+            
+        }
+        catch(Exception e){System.out.println("Artist Retrieval Failed: " + e);}
+        return fav_artist; 
     }
    
     public void setFavArtist (String favArtist) {
@@ -71,7 +168,28 @@ public class User{
     }
     
     public String getFavSong() {
-        return this.favSong;
+        String fav_song = "Flashing Lights"; 
+        try{
+            Connection con = getCon(); 
+            String userQ = "select fav_song from theUser where username like \"" + this.username + "\""; 
+            //System.out.println(userQ); 
+            PreparedStatement ps = con.prepareStatement(userQ); 
+
+            try(ResultSet rs = ps.executeQuery()){
+                //System.out.println("Statement: " + rs);
+                //Try printing result set
+                
+                while(rs.next()){
+                    fav_song = rs.getString("fav_song");
+                    
+                }
+                con.close();   
+            }
+            catch(Exception e){System.out.println("getFavSong: "+ e);}
+            
+        }
+        catch(Exception e){System.out.println("Song Retrieval Failed: " + e);}
+        return fav_song; 
     }
     
     public void setFavSong(String favSong) {
